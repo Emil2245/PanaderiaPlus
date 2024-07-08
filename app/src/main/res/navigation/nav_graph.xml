@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/panFragment">
+
+    <fragment
+        android:id="@+id/panOrdenadoFragment"
+        android:name="com.app.panaderiaplus.ui.screen.orden.PanOrdenadoFragment"
+        android:label="PanOrdenadoFragment" />
+    <fragment
+        android:id="@+id/panFragment"
+        android:name="com.app.panaderiaplus.ui.screen.panes_base.PanFragment"
+        android:label="PanesFragment" />
+    <fragment
+        android:id="@+id/panDetallesFragment"
+        android:name="com.app.panaderiaplus.ui.screen.pan_detalles.PanDetallesFragment"
+        android:label="PanDetallesFragment" />
+</navigation>

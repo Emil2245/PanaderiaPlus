@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PanaderiaPlus</string>
+    <string name="action_back">Back</string>
+    <string name="action_order_pan">Elige tu orden</string>
+    <string name="action_show_detailed_cards">Show detailed cards</string>
+
+    <string name="mark_as_favorite">Mark as favorite</string>
+    <string name="unmark_as_favorite">Unmark as favorite</string>
+
+    <string name="counter_increase">＋</string>
+    <string name="counter_decrease">—</string>
+</resources>
