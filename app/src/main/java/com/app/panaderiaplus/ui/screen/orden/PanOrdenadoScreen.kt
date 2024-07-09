@@ -71,8 +71,8 @@ fun MostrarPanCorrectoScreen(
                     Column {
                         OrdenarPanItem(
                             panOrdenado = pan,
-                            onAdded = { viewModel.addDrink(pan.id) },
-                            onRemoved = { viewModel.removeDrink(pan.id) }
+                            onAdded = { viewModel.addPan(pan.id) },
+                            onRemoved = { viewModel.removePan(pan.id) }
                         )
                         AppDivider(PaddingValues(start = 84.dp))
                     }
@@ -81,7 +81,6 @@ fun MostrarPanCorrectoScreen(
         }
     }
 }
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -205,3 +204,5 @@ private fun AppBarWithOrderSummary(
         }
     }
 }
+
+
