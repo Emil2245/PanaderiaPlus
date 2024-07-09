@@ -11,6 +11,16 @@ class PanesBD : FuentePanes {
 override fun getPanesRegistrados(): List<Pan> {
         return mutableListOf(
             Pan(
+                id = 10L,
+                name = "Brownie de nueces",
+                imageUrl = R.drawable.brownie_transparent,
+                description = "Brownies horneados con nueces , altos en proteina",
+                ingredients = "Chocolate negro 90% puro, cacao en polvo, huevos de granja, mantequilla fresca (no margarina), sal de mar, harina de centeno y proteina de leche",
+                orderDescription = "150 kcal",
+                price = 1.5,
+                isFavourite = true
+            ),
+            Pan(
                 id = 1L,
                 name = "Pan de Manteca",
                 imageUrl = R.drawable.pan_manteca,
@@ -43,7 +53,7 @@ override fun getPanesRegistrados(): List<Pan> {
             Pan(
                 id = 4L,
                 name = "Pastel de chocolate",
-                imageUrl = R.drawable.pastel_chocolate,
+                imageUrl = R.drawable.chocolate_cake,
                 description = "Pastel esponjoso de chocolate, cubierto con glaseado de chocolate.",
                 ingredients = "Harina de trigo, azúcar, cacao en polvo, mantequilla, huevos, leche, polvo de hornear, vainilla. ",
                 orderDescription = "350 kcal",
@@ -94,22 +104,13 @@ override fun getPanesRegistrados(): List<Pan> {
                 id = 9L,
                 name = "Galletas de avena",
                 imageUrl = R.drawable.galletas_de_avena,
-                description = "Latte Macchiato is a coffee beverage; the name literally means stained milk.",
-                ingredients = "Espresso, Milk, Milk foam, Flavoured coffee syrup",
+                description = "Galletas crujientes con un toque de canela y pasas",
+                ingredients = "Avena, harina de trigo, azúcar, mantequilla, huevos, canela, pasas, bicarbonato de sodio",
                 orderDescription = "300 ml",
                 price = 0.5,
                 isFavourite = false
             ),
-            Pan(
-                id = 10L,
-                name = "Brownie de nueces",
-                imageUrl = R.drawable.brownie_walnut,
-                description = "Galletas crujientes con un toque de canela y pasas",
-                ingredients = "Avena, harina de trigo, azúcar, mantequilla, huevos, canela, pasas, bicarbonato de sodio",
-                orderDescription = "150 kcal",
-                price = 1.5,
-                isFavourite = false
-            )
+
         )
     }
 }

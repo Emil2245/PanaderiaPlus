@@ -115,7 +115,7 @@ private fun PanDetallesScreenUI(
         Image(
             modifier = Modifier
                 .constrainAs(image) { centerTo(header) }
-                .size(180.dp),
+                .size(200.dp),
             painter = BitmapPainter(ImageBitmap.imageResource(id = panDetallesState.panes.imageUrl)),
             contentDescription = null
         )

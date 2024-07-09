@@ -50,7 +50,7 @@ fun PanDetalladoItem(
     Card {
         Column {
             Box(
-                modifier = Modifier.height(200.dp)
+                modifier = Modifier.height(250.dp)
                     .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.secondary)
                     .padding(8.dp)
@@ -67,13 +67,13 @@ fun PanDetalladoItem(
                 Image(
                     painter = BitmapPainter(ImageBitmap.imageResource(id = pan.imageUrl)),
                     modifier = Modifier.align(Alignment.Center)
-                        .size(100.dp),
+                        .size(500.dp),
                     contentDescription = null
                 )
                 Text(
                     modifier = Modifier.align(Alignment.BottomStart),
                     text = pan.name,
-                    style = MaterialTheme.typography.bodySmall.copy(
+                    style = MaterialTheme.typography.headlineSmall.copy(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 )
