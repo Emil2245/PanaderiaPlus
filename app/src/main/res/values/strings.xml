@@ -9,4 +9,5 @@
 
     <string name="counter_increase">＋</string>
     <string name="counter_decrease">—</string>
+    <string name="logo_description">Logo de la empresa</string>
 </resources>
