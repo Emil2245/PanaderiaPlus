@@ -51,7 +51,7 @@ class PanOrdenadoFragment : Fragment() {
                                 )
                             }
                             is UiState.Error -> {
-                                //todo
+                                // Implement error screen
                             }
                         }
                     }
@@ -62,6 +62,7 @@ class PanOrdenadoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadDrinks()
+        viewModel.loadPanes()
     }
 }
+

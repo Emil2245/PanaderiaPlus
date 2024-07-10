@@ -17,19 +17,19 @@ class PanOrdenadoViewModel(
     val uiState: LiveData<UiState<PanOrdenadoState>>
         get() = _uiState
 
-    fun loadDrinks() {
+    fun loadPanes() {
         viewModelScope.launch {
             _uiState.value = UiState.Loading
             repository.listarPanes()
-                .collect { pan ->
-                    val totalCount = pan
+                .collect { panes ->
+                    val totalCount = panes
                         .filter { it.count > 0 }
                         .map { it.count * it.price }
                         .sum()
 
                     _uiState.value = UiState.Success(
                         PanOrdenadoState(
-                            listaPanes = pan,
+                            listaPanes = panes,
                             totalPrice = BigDecimal(totalCount)
                         )
                     )
@@ -37,25 +37,26 @@ class PanOrdenadoViewModel(
         }
     }
 
-    fun addDrink(panId: Long) {
+    fun addPan(panId: Long) {
         viewModelScope.launch {
             repository.add(panId)
                 .collect { isAdded ->
                     if (isAdded) {
-                        loadDrinks()
+                        loadPanes()
                     }
                 }
         }
     }
 
-    fun removeDrink(panId: Long) {
+    fun removePan(panId: Long) {
         viewModelScope.launch {
             repository.remove(panId)
                 .collect { isRemoved ->
                     if (isRemoved) {
-                        loadDrinks()
+                        loadPanes()
                     }
                 }
         }
     }
 }
+

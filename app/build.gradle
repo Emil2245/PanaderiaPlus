@@ -59,7 +59,12 @@ dependencies {
     implementation libs.androidx.navigation.fragment
     implementation libs.androidx.constraintlayout
     implementation libs.androidx.runtime.livedata
-    implementation files('C:\\Users\\emilv\\.gradle\\caches\\transforms-3\\2dc047ba2d7a93c4ff7ab1f28525f087\\transformed\\jetified-constraintlayout-compose-1.0.0\\jars\\classes.jar')
+    implementation "androidx.compose.ui:ui:1.3.1"
+    implementation "androidx.compose.material:material:1.3.1"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.3.1"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.activity:activity-compose:1.5.1"
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
@@ -67,9 +72,6 @@ dependencies {
     androidTestImplementation libs.androidx.ui.test.junit4
     debugImplementation libs.androidx.ui.tooling
     debugImplementation libs.androidx.ui.test.manifest
-// https://mvnrepository.com/artifact/io.insert-koin/koin-android
     implementation("io.insert-koin:koin-android:3.5.6")
-
-
 
 }

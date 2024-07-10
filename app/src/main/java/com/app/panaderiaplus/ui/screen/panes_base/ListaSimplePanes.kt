@@ -37,7 +37,7 @@ import com.app.panaderiaplus.ui.component.Favourite
 import com.app.panaderiaplus.ui.screen.panes_base.mapper.PanItemMapper
 import com.app.panaderiaplus.ui.screen.panes_base.model.PanItem
 
-private val PAN_IMAGE_SIZE = 72.dp
+private val PAN_IMAGE_SIZE = 88.dp
 
 @Preview
 @Composable
@@ -85,7 +85,7 @@ fun ListarPanItem(
     Row {
         Surface(
             modifier = Modifier.size(PAN_IMAGE_SIZE)
-                .padding(8.dp),
+                .padding(5.dp),
             shape = CircleShape,
             color = Color(0xFFFAFAFA)
         ) {
@@ -95,6 +95,7 @@ fun ListarPanItem(
                 contentDescription = null
             )
         }
+
         Box(
             modifier = Modifier.fillMaxWidth()
                 .weight(1f)
@@ -113,13 +114,14 @@ fun ListarPanItem(
                         .alpha(0.54f),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
         }
 
         Favourite(
+            modifier = Modifier.padding(top = 10.dp),
             state = favouriteState,
             onValueChanged = {
                 onFavouriteStateChanged(pan)
