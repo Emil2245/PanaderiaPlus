@@ -9,7 +9,8 @@ import java.lang.IllegalArgumentException
 enum class Screen {
     Panes,
     PanesDetallados,
-    PanesOrdenados
+    PanesOrdenados,
+    Qr
 }
 
 fun Fragment.navigate(from: Screen, to: Screen, bundle: Bundle? = null) {
@@ -34,5 +35,6 @@ private fun mapScreenToId(from: Screen, to: Screen): Int {
         Screen.Panes -> R.id.panFragment
         Screen.PanesDetallados -> R.id.panDetallesFragment
         Screen.PanesOrdenados -> R.id.panOrdenadoFragment
+        Screen.Qr -> R.id.qrFragment
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/panFragment">
 
@@ -16,4 +17,13 @@
         android:id="@+id/panDetallesFragment"
         android:name="com.app.panaderiaplus.ui.screen.pan_detalles.PanDetallesFragment"
         android:label="PanDetallesFragment" />
+    <fragment
+        android:id="@+id/qrFragment"
+        android:name="com.app.panaderiaplus.ui.screen.qr.QrFragment"
+        android:label="QR Code"
+        tools:layout="fragment_qr">
+    <argument
+        android:name="qrData"
+        app:argType="string" />
+    </fragment>
 </navigation>

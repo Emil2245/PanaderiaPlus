@@ -1,5 +1,6 @@
 package com.app.panaderiaplus.ui.screen.orden
 
+import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -22,6 +24,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -60,13 +63,16 @@ fun CargandoPanScreen() {
 fun MostrarPanCorrectoScreen(
     panOrdenadoState: PanOrdenadoState,
     viewModel: PanOrdenadoViewModel,
-    onBack: () -> Unit
+    onBack: () -> Unit,
+    onProceedToQR: () -> Unit
 ) {
     Column {
         BarraPrecioTotal(
             totalPrice = panOrdenadoState.totalPrice,
-            onBackClick = onBack
+            onBackClick = onBack,
+            onProceedToQR = onProceedToQR
         )
+
         Surface {
             LazyColumn {
                 items(items = panOrdenadoState.listaPanes) { pan ->
@@ -83,6 +89,7 @@ fun MostrarPanCorrectoScreen(
         }
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -195,7 +202,8 @@ private fun Logo(
 @Composable
 private fun BarraPrecioTotal(
     totalPrice: BigDecimal,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onProceedToQR: () -> Unit
 ) {
     Surface(
         color = MaterialTheme.colorScheme.primary,
@@ -212,6 +220,17 @@ private fun BarraPrecioTotal(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 )
+                TextButton(
+                    onClick = { onProceedToQR() },
+                    contentPadding = PaddingValues(2.dp),
+                    modifier = Modifier.weight(1f).fillMaxWidth().padding(16.dp)
+                ) {
+                    Text(
+                        text = "Generar QR",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onBackground,
+                    )
+                }
                 Text(
                     text = "$ ${String.format("%.2f", totalPrice)}",
                     style = MaterialTheme.typography.titleMedium.copy(
