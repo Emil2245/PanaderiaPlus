@@ -17,6 +17,7 @@
         android:id="@+id/panDetallesFragment"
         android:name="com.app.panaderiaplus.ui.screen.pan_detalles.PanDetallesFragment"
         android:label="PanDetallesFragment" />
+
     <fragment
         android:id="@+id/qrFragment"
         android:name="com.app.panaderiaplus.ui.screen.qr.QrFragment"
@@ -26,4 +27,10 @@
         android:name="qrData"
         app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/facturaFragment"
+        android:name="com.app.panaderiaplus.ui.screen.factura.FacturaFragment"
+        android:label="fragment_factura"
+        tools:layout="fragment_factura" />
+
 </navigation>

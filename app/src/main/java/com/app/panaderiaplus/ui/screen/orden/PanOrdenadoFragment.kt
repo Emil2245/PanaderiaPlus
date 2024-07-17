@@ -60,7 +60,7 @@ class PanOrdenadoFragment : Fragment() {
                                             Toast.makeText(context, "Debe seleccionar al menos un elemento", Toast.LENGTH_SHORT).show()
                                         } else {
                                             val qrData = filteredPanes.joinToString(separator = "\n") {
-                                                "${it.name}, Cantidad: ${it.count}, Precio: ${it.price}"
+                                                "{ item: ${it.name}, cantidad: ${it.count}, precio: ${it.price} },\n"
                                             }
                                             val bundle = Bundle().apply {
                                                 putString("qrData", qrData)
@@ -106,7 +106,7 @@ class PanOrdenadoFragment : Fragment() {
             Screen.Panes -> R.id.panFragment
             Screen.PanesDetallados -> R.id.panDetallesFragment
             Screen.PanesOrdenados -> R.id.panOrdenadoFragment
-            Screen.Qr -> R.id.qrFragment // Añadir esta línea
+            Screen.Qr -> R.id.qrFragment
             else -> throw IllegalArgumentException("Cannot navigate from $from to $to")
         }
     }

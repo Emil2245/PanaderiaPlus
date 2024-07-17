@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,7 +18,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -43,6 +47,7 @@ import com.app.panaderiaplus.data.order.PanOrdenado
 import com.app.panaderiaplus.ui.component.AppDivider
 import com.app.panaderiaplus.ui.component.Counter
 import com.app.panaderiaplus.ui.screen.orden.model.PanOrdenadoState
+import com.app.panaderiaplus.ui.theme.Purple40
 import java.math.BigDecimal
 
 private val PAN_IMAGE_SIZE = 88.dp
@@ -212,7 +217,7 @@ private fun BarraPrecioTotal(
             AppBar {
                 onBackClick()
             }
-            Row(modifier = Modifier.padding(8.dp)) {
+            Row(modifier = Modifier.padding(vertical = 4.dp, horizontal = 10.dp)) {
                 Text(
                     text = "Total de compra:",
                     modifier = Modifier.weight(2f),
@@ -220,17 +225,6 @@ private fun BarraPrecioTotal(
                         color = MaterialTheme.colorScheme.onPrimary
                     )
                 )
-                TextButton(
-                    onClick = { onProceedToQR() },
-                    contentPadding = PaddingValues(2.dp),
-                    modifier = Modifier.weight(1f).fillMaxWidth().padding(16.dp)
-                ) {
-                    Text(
-                        text = "Generar QR",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onBackground,
-                    )
-                }
                 Text(
                     text = "$ ${String.format("%.2f", totalPrice)}",
                     style = MaterialTheme.typography.titleMedium.copy(
@@ -238,6 +232,24 @@ private fun BarraPrecioTotal(
                     )
                 )
             }
+            Row(modifier = Modifier.padding(8.dp)) {
+                Button(
+                    onClick = { onProceedToQR() },
+                    shape = RoundedCornerShape(16.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(Purple40)
+                ) {
+                    Text(
+                        text = "Generar QR",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                }
+            }
+
+
         }
     }
 }
