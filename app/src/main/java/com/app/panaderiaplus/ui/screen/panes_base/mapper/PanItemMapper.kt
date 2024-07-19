@@ -12,7 +12,8 @@ class PanItemMapper {
             imageUrl = pan.imageUrl,
             ingredients = pan.ingredients,
             description = pan.description,
-            isFavourite = pan.isFavourite
+            isFavourite = pan.isFavourite,
+            category = pan.category
         )
     }
 }
