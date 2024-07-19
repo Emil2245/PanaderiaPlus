@@ -10,5 +10,6 @@ data class Pan(
     val ingredients: String,
     val orderDescription: String,
     val price: Double,
-    val isFavourite: Boolean
+    val isFavourite: Boolean,
+    val category: String
 )
