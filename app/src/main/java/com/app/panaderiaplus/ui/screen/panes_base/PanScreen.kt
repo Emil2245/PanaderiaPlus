@@ -156,6 +156,13 @@ fun BarraSuperior(
                 DropdownMenuItem(
                     onClick = {
                         expanded = false
+                        onFilterClick("embutidos")
+                    },
+                    text = { Text("Embutidos") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
                         onFilterClick("otros")
                     },
                     text = { Text("Otros") }
