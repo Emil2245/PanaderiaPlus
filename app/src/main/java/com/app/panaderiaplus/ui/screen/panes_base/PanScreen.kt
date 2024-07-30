@@ -6,15 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
@@ -61,9 +54,10 @@ fun PanesScreenUI(
     Surface {
         Column {
             BarraSuperior(
-                panState.displayingOption,
+                displayingOption = panState.displayingOption,
                 onChangeDisplayOption = { viewModel.changeDisplayingOption() },
-                panesOrdenadosMenuItem = { panOrdenadoMenuItem() }
+                panesOrdenadosMenuItem = { panOrdenadoMenuItem() },
+                onFilterClick = { category -> viewModel.filterProductsByCategory(category) } // Pasar la categoría seleccionada
             )
             ListaPan(
                 panState = panState,
@@ -79,8 +73,11 @@ fun PanesScreenUI(
 fun BarraSuperior(
     displayingOption: DisplayingOptions,
     onChangeDisplayOption: () -> Unit,
-    panesOrdenadosMenuItem: () -> Unit
+    panesOrdenadosMenuItem: () -> Unit,
+    onFilterClick: (String) -> Unit // Añadir el parámetro onFilterClick
 ) {
+    var expanded by remember { mutableStateOf(false) }
+
     TopAppBar(
         title = {
             Text(
@@ -115,9 +112,73 @@ fun BarraSuperior(
                     contentDescription = stringResource(R.string.action_order_pan)
                 )
             }
-        },
+            IconButton(
+                onClick = { expanded = true }
+            ) {
+                Icon(
+                    painter = BitmapPainter(ImageBitmap.imageResource(id = R.drawable.filtros)),
+                    tint = MaterialTheme.colorScheme.onPrimary,
+                    contentDescription = stringResource(R.string.action_filter_pan)
+                )
+            }
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("panes")
+                    },
+                    text = { Text("Panes") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("lacteos")
+                    },
+                    text = { Text("Lácteos") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("postres")
+                    },
+                    text = { Text("Postres") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("bebidas")
+                    },
+                    text = { Text("Bebidas") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("embutidos")
+                    },
+                    text = { Text("Embutidos") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("otros")
+                    },
+                    text = { Text("Otros") }
+                )
+                DropdownMenuItem(
+                    onClick = {
+                        expanded = false
+                        onFilterClick("todos") // Opción para mostrar todos los productos
+                    },
+                    text = { Text("Todos") }
+                )
+            }
+        }
     )
 }
+
 
 @Composable
 fun ListaPan(

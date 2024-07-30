@@ -18,6 +18,7 @@ class PanViewModel(
     private val mapper: PanItemMapper
 ) : ViewModel() {
     private var currentDisplayingOption = DisplayingOptions.LIST
+    private var currentCategory = "todos" // Valor inicial por defecto
 
     private val _uiState: MutableLiveData<UiState<PanState>> = MutableLiveData()
     val uiState: LiveData<UiState<PanState>>
@@ -65,4 +66,27 @@ class PanViewModel(
                 }
         }
     }
+
+    fun filterProductsByCategory(category: String) {
+        currentCategory = category
+        viewModelScope.launch {
+            _uiState.value = UiState.Loading
+            repository.listarPanes()
+                .map { panes ->
+                    panes.map { mapper.map(it) }
+                }
+                .collect { panes ->
+                    val filteredPanes = panes.filter { pan ->
+                        pan.category == currentCategory || currentCategory == "todos"
+                    }
+                    _uiState.value = UiState.Success(
+                        PanState(
+                            filteredPanes,
+                            currentDisplayingOption
+                        )
+                    )
+                }
+        }
+    }
+
 }

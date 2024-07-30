@@ -6,5 +6,6 @@ data class PanItem(
     val imageUrl: Int,
     val ingredients: String,
     val description: String,
-    val isFavourite: Boolean
+    val isFavourite: Boolean,
+    val category: String
 )
