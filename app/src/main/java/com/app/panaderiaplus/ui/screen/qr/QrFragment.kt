@@ -33,7 +33,7 @@ class QrFragment : Fragment() {
                         qrData,
                         onBackClick = { findNavController().popBackStack() },
                         onFacturaClick = {
-                            Toast.makeText(context, "Cliente: $clienteNombre", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Recogelo en caja!", Toast.LENGTH_SHORT).show()
                         }
                     )
                 }
