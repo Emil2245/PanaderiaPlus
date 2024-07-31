@@ -24,7 +24,23 @@ class FacturaFragment : Fragment() {
             )
             setContent {
                 PanaderiaPlusTheme {
-                    FacturaScreen(onBackClick = { findNavController().popBackStack() })
+                    val qrData = arguments?.getString("qrData") ?: ""
+                    val paymentMethod = arguments?.getString("paymentMethod") ?: "tarjeta"
+                    FacturaScreen(
+                        paymentMethod = paymentMethod,
+                        onBackClick = { findNavController().popBackStack() },
+                        onProceedToQR = { nombre, cedula, direccion, telefono, tarjetaNumero ->
+                            val clienteInfo = "Nombre: $nombre, Cedula: $cedula, Direccion: $direccion, Telefono: $telefono"
+                            val tarjetaInfo = if (paymentMethod == "tarjeta") "\nTarjeta: $tarjetaNumero" else ""
+                            val fullQrData = "$qrData\n$clienteInfo$tarjetaInfo"
+                            val bundle = Bundle().apply {
+                                putString("qrData", fullQrData)
+                                putString("clienteNombre", nombre)
+                                putString("paymentMethod", paymentMethod)
+                            }
+                            findNavController().navigate(R.id.qrFragment, bundle)
+                        }
+                    )
                 }
             }
         }

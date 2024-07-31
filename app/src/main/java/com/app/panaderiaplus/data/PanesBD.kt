@@ -422,7 +422,7 @@ override fun getPanesRegistrados(): List<Pan> {
     Pan(
         id = 36L,
         name = "Salchicha de Pollo",
-        imageUrl = R.drawable.salchichas_pollo,
+        imageUrl = R.drawable.salchichas_carne,
         description = "Salchichas ligeras hechas de carne de pollo, perfectas para una opción más saludable.",
         ingredients = "Carne de pollo, especias",
         orderDescription = "500 g",

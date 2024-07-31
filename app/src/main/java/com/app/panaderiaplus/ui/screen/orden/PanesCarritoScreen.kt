@@ -1,11 +1,10 @@
+// PanesCarritoScreen.kt
+
 package com.app.panaderiaplus.ui.screen.orden
 
 import android.util.Log
-import androidx.annotation.DrawableRes
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -28,7 +27,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -51,6 +49,7 @@ import com.app.panaderiaplus.ui.theme.Purple40
 import java.math.BigDecimal
 
 private val PAN_IMAGE_SIZE = 88.dp
+
 @Composable
 fun CargandoPanScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -69,13 +68,15 @@ fun MostrarPanCorrectoScreen(
     panOrdenadoState: PanOrdenadoState,
     viewModel: PanOrdenadoViewModel,
     onBack: () -> Unit,
-    onProceedToQR: () -> Unit
+    onProceedToQR: () -> Unit,
+    onProceedToCajaQR: () -> Unit
 ) {
     Column {
         BarraPrecioTotal(
             totalPrice = panOrdenadoState.totalPrice,
             onBackClick = onBack,
-            onProceedToQR = onProceedToQR
+            onProceedToQR = onProceedToQR,
+            onProceedToCajaQR = onProceedToCajaQR
         )
 
         Surface {
@@ -95,21 +96,83 @@ fun MostrarPanCorrectoScreen(
     }
 }
 
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+private fun BarraPrecioTotal(
+    totalPrice: BigDecimal,
+    onBackClick: () -> Unit,
+    onProceedToQR: () -> Unit,
+    onProceedToCajaQR: () -> Unit
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+    ) {
+        Column {
+            AppBar(onBackClick)
+            Row(modifier = Modifier.padding(vertical = 4.dp, horizontal = 10.dp)) {
+                Text(
+                    text = "Total de compra:",
+                    modifier = Modifier.weight(2f),
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        color = MaterialTheme.colorScheme.onPrimary
+                    )
+                )
+                Text(
+                    text = "$ ${String.format("%.2f", totalPrice)}",
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        color = MaterialTheme.colorScheme.onPrimary
+                    )
+                )
+            }
+            Row(modifier = Modifier.padding(8.dp)) {
+                Button(
+                    onClick = onProceedToQR,
+                    shape = RoundedCornerShape(16.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(end = 4.dp),
+                    colors = ButtonDefaults.buttonColors(Purple40)
+                ) {
+                    Text(
+                        text = "Pagar con Tarjeta",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                }
+                Button(
+                    onClick = onProceedToCajaQR,
+                    shape = RoundedCornerShape(16.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .padding(start = 4.dp),
+                    colors = ButtonDefaults.buttonColors(Purple40)
+                ) {
+                    Text(
+                        text = "Pagar en Caja",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                }
+            }
+        }
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AppBar(
-    onBackClick: () -> Unit
-) {
+fun AppBar(onBackClick: () -> Unit) {
     TopAppBar(
         title = {
             Text(
-                text = "Selecciona tu orden: ",
+                text = "",
                 style = MaterialTheme.typography.titleLarge.copy(
                     color = MaterialTheme.colorScheme.onPrimary
                 )
             )
-        }, colors = TopAppBarDefaults.topAppBarColors(
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary
         ),
@@ -133,10 +196,12 @@ fun OrdenarPanItem(
     onRemoved: () -> Unit
 ) {
     Row(
-        modifier = Modifier.padding(top = 8.dp, bottom = 8.dp, end = 8.dp)
+        modifier = Modifier
+            .padding(top = 8.dp, bottom = 8.dp, end = 8.dp)
     ) {
         Surface(
-            modifier = Modifier.size(PAN_IMAGE_SIZE)
+            modifier = Modifier
+                .size(PAN_IMAGE_SIZE)
                 .padding(5.dp),
             shape = CircleShape,
             color = Color(0xFFFAFAFA)
@@ -182,76 +247,3 @@ fun OrdenarPanItem(
         }
     }
 }
-
-@Composable
-private fun Logo(
-    @DrawableRes logoId: Int,
-    modifier: Modifier = Modifier
-) {
-    Surface(
-        modifier = modifier
-            .size(72.dp)
-            .padding(8.dp),
-        shape = CircleShape,
-        color = Color(0xFFFAFAFA)
-    ) {
-        Image(
-            modifier = Modifier.size(72.dp),
-            painter = BitmapPainter(ImageBitmap.imageResource(id = logoId)),
-            contentDescription = null
-        )
-    }
-}
-
-@ExperimentalAnimationApi
-@Composable
-private fun BarraPrecioTotal(
-    totalPrice: BigDecimal,
-    onBackClick: () -> Unit,
-    onProceedToQR: () -> Unit
-) {
-    Surface(
-        color = MaterialTheme.colorScheme.primary,
-    ) {
-        Column {
-            AppBar {
-                onBackClick()
-            }
-            Row(modifier = Modifier.padding(vertical = 4.dp, horizontal = 10.dp)) {
-                Text(
-                    text = "Total de compra:",
-                    modifier = Modifier.weight(2f),
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        color = MaterialTheme.colorScheme.onPrimary
-                    )
-                )
-                Text(
-                    text = "$ ${String.format("%.2f", totalPrice)}",
-                    style = MaterialTheme.typography.titleMedium.copy(
-                        color = MaterialTheme.colorScheme.onPrimary
-                    )
-                )
-            }
-            Row(modifier = Modifier.padding(8.dp)) {
-                Button(
-                    onClick = { onProceedToQR() },
-                    shape = RoundedCornerShape(16.dp),
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(Purple40)
-                ) {
-                    Text(
-                        text = "Generar QR",
-                        style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.onPrimary,
-                    )
-                }
-            }
-
-
-        }
-    }
-}
-
-
