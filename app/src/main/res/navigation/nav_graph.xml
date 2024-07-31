@@ -28,6 +28,12 @@
         app:argType="string" />
     </fragment>
     <fragment
+        android:id="@+id/pdfViewerFragment"
+        android:name="com.app.panaderiaplus.ui.screen.pdfviewer.PdfViewerFragment"
+        android:label="PDF Viewer"
+        tools:layout="fragment_pdf_viewer" />
+
+    <fragment
         android:id="@+id/facturaFragment"
         android:name="com.app.panaderiaplus.ui.screen.factura.FacturaFragment"
         android:label="fragment_factura"

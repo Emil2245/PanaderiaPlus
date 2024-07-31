@@ -96,7 +96,6 @@ fun MostrarPanCorrectoScreen(
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 private fun BarraPrecioTotal(
     totalPrice: BigDecimal,

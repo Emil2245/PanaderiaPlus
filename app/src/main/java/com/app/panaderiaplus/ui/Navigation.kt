@@ -11,7 +11,8 @@ enum class Screen {
     PanesDetallados,
     PanesOrdenados,
     Qr,
-    Factura
+    Factura,
+    PdfViewer
 }
 
 fun Fragment.navigate(from: Screen, to: Screen, bundle: Bundle? = null) {
@@ -38,5 +39,6 @@ private fun mapScreenToId(from: Screen, to: Screen): Int {
         Screen.PanesOrdenados -> R.id.panOrdenadoFragment
         Screen.Qr -> R.id.qrFragment
         Screen.Factura -> R.id.facturaFragment
+        Screen.PdfViewer -> R.id.pdfViewerFragment
     }
 }

@@ -34,7 +34,8 @@ import com.app.panaderiaplus.R
 fun FacturaScreen(
     paymentMethod: String,
     onBackClick: () -> Unit,
-    onProceedToQR: (String, String, String, String, String) -> Unit
+    onProceedToQR: (String, String, String, String, String) -> Unit,
+    onGeneratePDF: (String, String, String, String, String, List<Pan>) -> Unit
 ) {
     val nombre = remember { mutableStateOf("") }
     val cedula = remember { mutableStateOf("") }
@@ -43,10 +44,13 @@ fun FacturaScreen(
     val tarjetaNumero = remember { mutableStateOf("") }
     val codigoSeguro = remember { mutableStateOf("") }
 
+    val panes = listOf(
+        Pan(name = "Pan Blanco", count = 2, price = 1.0),
+        Pan(name = "Pan Integral", count = 1, price = 1.5)
+    )
+
     Scaffold(
-        topBar = {
-            FacturaAppBar(onBackClick)
-        }
+        topBar = { FacturaAppBar(onBackClick) }
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -111,23 +115,45 @@ fun FacturaScreen(
                         .padding(top = 16.dp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.NumberPassword)
                 )
+
+                Button(
+                    onClick = {
+                        onGeneratePDF(
+                            nombre.value,
+                            cedula.value,
+                            direccion.value,
+                            telefono.value,
+                            tarjetaNumero.value,
+                            panes
+                        )
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp)
+                ) {
+                    Text("Generar PDF")
+                }
             }
-            Button(
-                onClick = {
-                    onProceedToQR(
-                        nombre.value,
-                        cedula.value,
-                        direccion.value,
-                        telefono.value,
-                        tarjetaNumero.value
-                    )
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 16.dp)
-            ) {
-                Text("Enviar")
+            if (paymentMethod != "tarjeta") {
+
+                Button(
+                    onClick = {
+                        onProceedToQR(
+                            nombre.value,
+                            cedula.value,
+                            direccion.value,
+                            telefono.value,
+                            tarjetaNumero.value
+                        )
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp)
+                ) {
+                    Text("Enviar")
+                }
             }
+
         }
     }
 }
