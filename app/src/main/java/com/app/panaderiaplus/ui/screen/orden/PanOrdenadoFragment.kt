@@ -64,6 +64,7 @@ class PanOrdenadoFragment : Fragment() {
                                             }
                                             val bundle = Bundle().apply {
                                                 putString("qrData", qrData)
+                                                putSerializable("panes", ArrayList(filteredPanes))  // Pasar la lista de panes
                                                 putString("paymentMethod", "tarjeta")
                                             }
                                             this@PanOrdenadoFragment.navigate(
@@ -83,6 +84,7 @@ class PanOrdenadoFragment : Fragment() {
                                             }
                                             val bundle = Bundle().apply {
                                                 putString("qrData", qrData)
+                                                putSerializable("panes", ArrayList(filteredPanes))  // Pasar la lista de panes
                                                 putString("paymentMethod", "caja")
                                             }
                                             this@PanOrdenadoFragment.navigate(
@@ -95,7 +97,7 @@ class PanOrdenadoFragment : Fragment() {
                                 )
                             }
                             is UiState.Error -> {
-                                // Implement error screen
+                                // Implementar pantalla de error
                             }
                         }
                     }
@@ -107,25 +109,5 @@ class PanOrdenadoFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.loadPanes()
-    }
-}
-
-fun Fragment.navigate(from: Screen, to: Screen, bundle: Bundle? = null) {
-    val id = mapScreenToId(from, to)
-    if (bundle == null) {
-        findNavController().navigate(id)
-    } else {
-        findNavController().navigate(id, bundle)
-    }
-}
-
-private fun mapScreenToId(from: Screen, to: Screen): Int {
-    return when (to) {
-        Screen.Panes -> R.id.panFragment
-        Screen.PanesDetallados -> R.id.panDetallesFragment
-        Screen.PanesOrdenados -> R.id.panOrdenadoFragment
-        Screen.Qr -> R.id.qrFragment
-        Screen.Factura -> R.id.facturaFragment
-        else -> throw IllegalArgumentException("Cannot navigate from $from to $to")
     }
 }

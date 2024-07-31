@@ -8,8 +8,9 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.app.panaderiaplus.R
-import com.app.panaderiaplus.ui.screen.generatePDF
+import com.app.panaderiaplus.data.order.PanOrdenado
 import com.app.panaderiaplus.ui.theme.PanaderiaPlusTheme
+import com.app.panaderiaplus.ui.screen.generatePDF
 
 class FacturaFragment : Fragment() {
     override fun onCreateView(
@@ -27,8 +28,10 @@ class FacturaFragment : Fragment() {
                 PanaderiaPlusTheme {
                     val qrData = arguments?.getString("qrData") ?: ""
                     val paymentMethod = arguments?.getString("paymentMethod") ?: "tarjeta"
+                    val panes = arguments?.getSerializable("panes") as? List<PanOrdenado> ?: emptyList()
                     FacturaScreen(
                         paymentMethod = paymentMethod,
+                        panes = panes,
                         onBackClick = { findNavController().popBackStack() },
                         onProceedToQR = { nombre, cedula, direccion, telefono, tarjetaNumero ->
                             val clienteInfo = "Nombre: $nombre, Cedula: $cedula, Direccion: $direccion, Telefono: $telefono"
