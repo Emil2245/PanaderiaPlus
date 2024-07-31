@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PDF.js viewer</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf_viewer.min.css">
+</head>
+<body>
+<div id="viewer" class="pdfViewer"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/pdf_viewer.min.js"></script>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const pdfPath = urlParams.get('file');
+
+    const CMAP_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.7.570/cmaps/';
+    const CMAP_PACKED = true;
+
+    const DEFAULT_SCALE = 1.0;
+
+    const container = document.getElementById('viewer');
+
+    const eventBus = new pdfjsViewer.EventBus();
+
+    const pdfLinkService = new pdfjsViewer.PDFLinkService({
+        eventBus: eventBus,
+    });
+
+    const pdfViewer = new pdfjsViewer.PDFViewer({
+        container: container,
+        eventBus: eventBus,
+        linkService: pdfLinkService,
+        useOnlyCssZoom: true,
+        textLayerMode: 0,
+    });
+
+    pdfLinkService.setViewer(pdfViewer);
+
+    eventBus.on('pagesinit', function () {
+        pdfViewer.currentScaleValue = DEFAULT_SCALE;
+    });
+
+    const loadingTask = pdfjsLib.getDocument({
+        url: pdfPath,
+        cMapUrl: CMAP_URL,
+        cMapPacked: CMAP_PACKED,
+    });
+
+    loadingTask.promise.then(function (pdfDocument) {
+        pdfViewer.setDocument(pdfDocument);
+        pdfLinkService.setDocument(pdfDocument, null);
+    });
+</script>
+</body>
+</html>

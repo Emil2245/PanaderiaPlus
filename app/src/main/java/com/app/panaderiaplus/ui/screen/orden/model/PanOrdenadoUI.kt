@@ -10,6 +10,5 @@ data class PanOrdenadoUI(
     @DrawableRes val imageRes: Int,
     val description: String,
     val price: Double,
-    // TODO: should be immutable
     var count: MutableState<Int> = mutableStateOf(0)
 )

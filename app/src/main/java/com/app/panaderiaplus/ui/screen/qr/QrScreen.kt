@@ -66,7 +66,7 @@ fun QrScreen(
                     onClick = onFacturaClick,
                     modifier = Modifier.padding(top = 16.dp)
                 ) {
-                    Text(text = "Ingresar Datos de Factura")
+                    Text(text = "Mi Pedido")
                 }
             }
         }

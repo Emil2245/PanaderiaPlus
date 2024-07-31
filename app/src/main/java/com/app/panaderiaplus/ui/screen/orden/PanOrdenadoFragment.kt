@@ -19,7 +19,7 @@ import com.app.panaderiaplus.ui.state.UiState
 import com.app.panaderiaplus.ui.theme.PanaderiaPlusTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@OptIn(ExperimentalAnimationApi::class)
+@ExperimentalAnimationApi
 class PanOrdenadoFragment : Fragment() {
     private val viewModel: PanOrdenadoViewModel by viewModel()
 
@@ -64,10 +64,32 @@ class PanOrdenadoFragment : Fragment() {
                                             }
                                             val bundle = Bundle().apply {
                                                 putString("qrData", qrData)
+                                                putSerializable("panes", ArrayList(filteredPanes))  // Pasar la lista de panes
+                                                putString("paymentMethod", "tarjeta")
                                             }
                                             this@PanOrdenadoFragment.navigate(
                                                 Screen.PanesOrdenados,
-                                                Screen.Qr,
+                                                Screen.Factura, // Navegamos a la pantalla de factura
+                                                bundle
+                                            )
+                                        }
+                                    },
+                                    onProceedToCajaQR = {
+                                        val filteredPanes = uiState.data.listaPanes.filter { it.count > 0 }
+                                        if (filteredPanes.isEmpty()) {
+                                            Toast.makeText(context, "Debe seleccionar al menos un elemento", Toast.LENGTH_SHORT).show()
+                                        } else {
+                                            val qrData = filteredPanes.joinToString(separator = "\n") {
+                                                "{ item: ${it.name}, cantidad: ${it.count}, precio: ${it.price} },\n"
+                                            }
+                                            val bundle = Bundle().apply {
+                                                putString("qrData", qrData)
+                                                putSerializable("panes", ArrayList(filteredPanes))  // Pasar la lista de panes
+                                                putString("paymentMethod", "caja")
+                                            }
+                                            this@PanOrdenadoFragment.navigate(
+                                                Screen.PanesOrdenados,
+                                                Screen.Factura, // Navegamos a la pantalla de factura
                                                 bundle
                                             )
                                         }
@@ -75,7 +97,7 @@ class PanOrdenadoFragment : Fragment() {
                                 )
                             }
                             is UiState.Error -> {
-                                // Implement error screen
+                                // Implementar pantalla de error
                             }
                         }
                     }
@@ -89,24 +111,3 @@ class PanOrdenadoFragment : Fragment() {
         viewModel.loadPanes()
     }
 }
-
-
-
-    fun Fragment.navigate(from: Screen, to: Screen, bundle: Bundle? = null) {
-        val id = mapScreenToId(from, to)
-        if (bundle == null) {
-            findNavController().navigate(id)
-        } else {
-            findNavController().navigate(id, bundle)
-        }
-    }
-
-    private fun mapScreenToId(from: Screen, to: Screen): Int {
-        return when (to) {
-            Screen.Panes -> R.id.panFragment
-            Screen.PanesDetallados -> R.id.panDetallesFragment
-            Screen.PanesOrdenados -> R.id.panOrdenadoFragment
-            Screen.Qr -> R.id.qrFragment
-            else -> throw IllegalArgumentException("Cannot navigate from $from to $to")
-        }
-    }

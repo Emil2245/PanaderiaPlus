@@ -8,7 +8,7 @@ interface FuentePanes {
 
 class PanesBD : FuentePanes {
 
-override fun getPanesRegistrados(): List<Pan> {
+    override fun getPanesRegistrados(): List<Pan> {
         return mutableListOf(
             Pan(
                 id = 10L,
@@ -311,367 +311,364 @@ override fun getPanesRegistrados(): List<Pan> {
                 isFavourite = false,
                 category = "postres"
             ),
-                    Pan(
-                    id = 27L,
-            name = "Tarta de Limón",
-            imageUrl = R.drawable.tarta_limon,
-            description = "Tarta de limón con un relleno cremoso y un toque de merengue.",
-            ingredients = "Harina, azúcar, limón, huevos, mantequilla, merengue",
-            orderDescription = "1 tarta",
-            price = 13.0,
-            isFavourite = false,
-            category = "postres"
-        ),
+            Pan(
+                id = 27L,
+                name = "Tarta de Limón",
+                imageUrl = R.drawable.tarta_limon,
+                description = "Tarta de limón con un relleno cremoso y un toque de merengue.",
+                ingredients = "Harina, azúcar, limón, huevos, mantequilla, merengue",
+                orderDescription = "1 tarta",
+                price = 13.0,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 28L,
-        name = "Donas Glaseadas",
-        imageUrl = R.drawable.donas_glaseadas,
-        description = "Donas suaves y esponjosas con un glaseado dulce.",
-        ingredients = "Harina, azúcar, leche, huevos, mantequilla, glaseado",
-        orderDescription = "1 dona",
-        price = 1.5,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 28L,
+                name = "Donas Glaseadas",
+                imageUrl = R.drawable.donas_glaseadas,
+                description = "Donas suaves y esponjosas con un glaseado dulce.",
+                ingredients = "Harina, azúcar, leche, huevos, mantequilla, glaseado",
+                orderDescription = "1 dona",
+                price = 1.5,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 29L,
-        name = "Donas de Chocolate",
-        imageUrl = R.drawable.donas_chocolate,
-        description = "Donas suaves cubiertas con un glaseado de chocolate.",
-        ingredients = "Harina, azúcar, leche, huevos, mantequilla, glaseado de chocolate",
-        orderDescription = "1 dona",
-        price = 1.5,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 29L,
+                name = "Donas de Chocolate",
+                imageUrl = R.drawable.donas_chocolate,
+                description = "Donas suaves cubiertas con un glaseado de chocolate.",
+                ingredients = "Harina, azúcar, leche, huevos, mantequilla, glaseado de chocolate",
+                orderDescription = "1 dona",
+                price = 1.5,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 30L,
-        name = "Galletas de Chispas de Chocolate",
-        imageUrl = R.drawable.galletas_chocolate,
-        description = "Galletas crujientes con deliciosas chispas de chocolate.",
-        ingredients = "Harina, azúcar, mantequilla, chispas de chocolate, huevos",
-        orderDescription = "1 paquete de 6 unidades",
-        price = 1.0,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 30L,
+                name = "Galletas de Chispas de Chocolate",
+                imageUrl = R.drawable.galletas_chocolate,
+                description = "Galletas crujientes con deliciosas chispas de chocolate.",
+                ingredients = "Harina, azúcar, mantequilla, chispas de chocolate, huevos",
+                orderDescription = "1 paquete de 6 unidades",
+                price = 1.0,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 31L,
-        name = "Galletas de Avena",
-        imageUrl = R.drawable.galletas_avena,
-        description = "Galletas saludables y crujientes hechas con avena.",
-        ingredients = "Avena, harina, azúcar, mantequilla, huevos",
-        orderDescription = "1 paquete de 6 unidades",
-        price = 1.0,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 31L,
+                name = "Galletas de Avena",
+                imageUrl = R.drawable.galletas_avena,
+                description = "Galletas saludables y crujientes hechas con avena.",
+                ingredients = "Avena, harina, azúcar, mantequilla, huevos",
+                orderDescription = "1 paquete de 6 unidades",
+                price = 1.0,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 32L,
-        name = "Galletas de Mantequilla",
-        imageUrl = R.drawable.galletas_mantequilla,
-        description = "Galletas suaves y deliciosas con un sabor rico a mantequilla.",
-        ingredients = "Harina, azúcar, mantequilla, huevos",
-        orderDescription = "1 paquete de 6 unidades",
-        price = 1.0,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 32L,
+                name = "Galletas de Mantequilla",
+                imageUrl = R.drawable.galletas_mantequilla,
+                description = "Galletas suaves y deliciosas con un sabor rico a mantequilla.",
+                ingredients = "Harina, azúcar, mantequilla, huevos",
+                orderDescription = "1 paquete de 6 unidades",
+                price = 1.0,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 33L,
-        name = "Croissants Rellenos de Chocolate",
-        imageUrl = R.drawable.croissants_chocolate,
-        description = "Croissants crujientes rellenos con chocolate fundido.",
-        ingredients = "Harina, mantequilla, azúcar, chocolate, levadura",
-        orderDescription = "1 croissant",
-        price = 1.75,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 33L,
+                name = "Croissants Rellenos de Chocolate",
+                imageUrl = R.drawable.croissants_chocolate,
+                description = "Croissants crujientes rellenos con chocolate fundido.",
+                ingredients = "Harina, mantequilla, azúcar, chocolate, levadura",
+                orderDescription = "1 croissant",
+                price = 1.75,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 34L,
-        name = "Croissants Rellenos de Crema",
-        imageUrl = R.drawable.croissants_crema,
-        description = "Croissants crujientes rellenos con crema pastelera.",
-        ingredients = "Harina, mantequilla, azúcar, crema pastelera, levadura",
-        orderDescription = "1 croissant",
-        price = 1.75,
-        isFavourite = false,
-        category = "postres"
-    ),
+            Pan(
+                id = 34L,
+                name = "Croissants Rellenos de Crema",
+                imageUrl = R.drawable.croissants_crema,
+                description = "Croissants crujientes rellenos con crema pastelera.",
+                ingredients = "Harina, mantequilla, azúcar, crema pastelera, levadura",
+                orderDescription = "1 croissant",
+                price = 1.75,
+                isFavourite = false,
+                category = "postres"
+            ),
 
-    Pan(
-        id = 35L,
-        name = "Salchicha de Carne",
-        imageUrl = R.drawable.salchichas_carne,
-        description = "Salchichas elaboradas con carne de res, ideales para parrilladas y desayunos.",
-        ingredients = "Carne de res, especias",
-        orderDescription = "1000 g",
-        price = 1.0,
-        isFavourite = false,
-        category = "embutidos"
-    ),
+            Pan(
+                id = 35L,
+                name = "Salchicha de Carne",
+                imageUrl = R.drawable.salchichas_carne,
+                description = "Salchichas elaboradas con carne de res, ideales para parrilladas y desayunos.",
+                ingredients = "Carne de res, especias",
+                orderDescription = "1000 g",
+                price = 1.0,
+                isFavourite = false,
+                category = "embutidos"
+            ),
 
-    Pan(
-        id = 36L,
-        name = "Salchicha de Pollo",
-        imageUrl = R.drawable.salchichas_pollo,
-        description = "Salchichas ligeras hechas de carne de pollo, perfectas para una opción más saludable.",
-        ingredients = "Carne de pollo, especias",
-        orderDescription = "500 g",
-        price = 0.6,
-        isFavourite = false,
-        category = "embutidos"
-    ),
+            Pan(
+                id = 36L,
+                name = "Salchicha de Pollo",
+                imageUrl = R.drawable.salchichas_carne,
+                description = "Salchichas ligeras hechas de carne de pollo, perfectas para una opción más saludable.",
+                ingredients = "Carne de pollo, especias",
+                orderDescription = "500 g",
+                price = 0.6,
+                isFavourite = false,
+                category = "embutidos"
+            ),
 
-    Pan(
-        id = 37L,
-        name = "Mortadela de Carne",
-        imageUrl = R.drawable.mortadela_carne,
-        description = "Mortadela tradicional hecha con carne de res, un clásico para sándwiches.",
-        ingredients = "Carne de res, especias",
-        orderDescription = "170 g",
-        price = 0.60,
-        isFavourite = false,
-        category = "embutidos"
-    ),
+            Pan(
+                id = 37L,
+                name = "Mortadela de Carne",
+                imageUrl = R.drawable.mortadela_carne,
+                description = "Mortadela tradicional hecha con carne de res, un clásico para sándwiches.",
+                ingredients = "Carne de res, especias",
+                orderDescription = "170 g",
+                price = 0.60,
+                isFavourite = false,
+                category = "embutidos"
+            ),
 
-    Pan(
-        id = 38L,
-        name = "Mortadela de Pollo",
-        imageUrl = R.drawable.mortadela_pollo,
-        description = "Mortadela ligera hecha con carne de pollo, perfecta para una opción más saludable.",
-        ingredients = "Carne de pollo, especias",
-        orderDescription = "170 g",
-        price = 0.6,
-        isFavourite = false,
-        category = "embutidos"
-    ) ,
-    Pan(
-        id = 39L,
-        name = "Jamón",
-        imageUrl = R.drawable.jamon,
-        description = "Jamón de alta calidad, ideal para sándwiches y ensaladas.",
-        ingredients = "Carne de cerdo, especias",
-        orderDescription = "120 g",
-        price = 0.6,
-        isFavourite = false,
-        category = "embutidos"
-    ),
-    Pan(
-        id = 40L,
-        name = "Leche Descremada",
-        imageUrl = R.drawable.leche_descremada,
-        description = "Leche descremada, ideal para una dieta baja en grasas.",
-        ingredients = "Leche descremada",
-        orderDescription = "1 litro",
-        price = 0.95,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 38L,
+                name = "Mortadela de Pollo",
+                imageUrl = R.drawable.mortadela_pollo,
+                description = "Mortadela ligera hecha con carne de pollo, perfecta para una opción más saludable.",
+                ingredients = "Carne de pollo, especias",
+                orderDescription = "170 g",
+                price = 0.6,
+                isFavourite = false,
+                category = "embutidos"
+            ),
+            Pan(
+                id = 39L,
+                name = "Jamón",
+                imageUrl = R.drawable.jamon,
+                description = "Jamón de alta calidad, ideal para sándwiches y ensaladas.",
+                ingredients = "Carne de cerdo, especias",
+                orderDescription = "120 g",
+                price = 0.6,
+                isFavourite = false,
+                category = "embutidos"
+            ),
+            Pan(
+                id = 40L,
+                name = "Leche Descremada",
+                imageUrl = R.drawable.leche_descremada,
+                description = "Leche descremada, ideal para una dieta baja en grasas.",
+                ingredients = "Leche descremada",
+                orderDescription = "1 litro",
+                price = 0.95,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 41L,
-        name = "Leche Entera",
-        imageUrl = R.drawable.leche_entera,
-        description = "Leche entera, rica en nutrientes y perfecta para toda la familia.",
-        ingredients = "Leche entera",
-        orderDescription = "1 litro",
-        price = 0.95,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 41L,
+                name = "Leche Entera",
+                imageUrl = R.drawable.leche_entera,
+                description = "Leche entera, rica en nutrientes y perfecta para toda la familia.",
+                ingredients = "Leche entera",
+                orderDescription = "1 litro",
+                price = 0.95,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 42L,
-        name = "Leche Semidescremada",
-        imageUrl = R.drawable.leche_semidescremada,
-        description = "Leche semidescremada, el equilibrio perfecto entre sabor y salud.",
-        ingredients = "Leche semidescremada",
-        orderDescription = "1 litro",
-        price = 0.95,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 42L,
+                name = "Leche Semidescremada",
+                imageUrl = R.drawable.leche_semidescremada,
+                description = "Leche semidescremada, el equilibrio perfecto entre sabor y salud.",
+                ingredients = "Leche semidescremada",
+                orderDescription = "1 litro",
+                price = 0.95,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 43L,
-        name = "Yogurt de Fresa",
-        imageUrl = R.drawable.yogurt_fresa,
-        description = "Yogurt cremoso con sabor a fresa, ideal para desayunos y meriendas.",
-        ingredients = "Leche, fresa, azúcar, cultivos lácticos",
-        orderDescription = "botella de yougurt de 200 g",
-        price = 0.8,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 43L,
+                name = "Yogurt de Fresa",
+                imageUrl = R.drawable.yogurt_fresa,
+                description = "Yogurt cremoso con sabor a fresa, ideal para desayunos y meriendas.",
+                ingredients = "Leche, fresa, azúcar, cultivos lácticos",
+                orderDescription = "botella de yougurt de 200 g",
+                price = 0.8,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 44L,
-        name = "Yogurt de Mora",
-        imageUrl = R.drawable.yogurt_mora
+            Pan(
+                id = 44L,
+                name = "Yogurt de Mora",
+                imageUrl = R.drawable.yogurt_mora,
+                description = "Yogurt cremoso con sabor a mora, perfecto para una merienda saludable.",
+                ingredients = "Leche, mora, azúcar, cultivos lácticos",
+                orderDescription = "botella de yougurt de 200 g",
+                price = 0.8,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
+            Pan(
+                id = 45L,
+                name = "Yogurt de Durazno",
+                imageUrl = R.drawable.yogurt_durazno,
+                description = "Yogurt cremoso con sabor a durazno, ideal para un desayuno rápido.",
+                ingredients = "Leche, durazno, azúcar, cultivos lácticos",
+                orderDescription = "botella de yougurt de 200 g",
+                price = 0.8,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-        ,
-        description = "Yogurt cremoso con sabor a mora, perfecto para una merienda saludable.",
-        ingredients = "Leche, mora, azúcar, cultivos lácticos",
-        orderDescription = "botella de yougurt de 200 g",
-        price = 0.8,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 46L,
+                name = "Queso Cheddar",
+                imageUrl = R.drawable.queso_chedar,
+                description = "Queso cheddar de sabor fuerte y textura firme, perfecto para hamburguesas y nachos.",
+                ingredients = "Leche de vaca, sal, cultivos lácticos",
+                orderDescription = "200 g",
+                price = 1.30,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 45L,
-        name = "Yogurt de Durazno",
-        imageUrl = R.drawable.yogurt_durazno,
-        description = "Yogurt cremoso con sabor a durazno, ideal para un desayuno rápido.",
-        ingredients = "Leche, durazno, azúcar, cultivos lácticos",
-        orderDescription = "botella de yougurt de 200 g",
-        price = 0.8,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 47L,
+                name = "Queso Crema",
+                imageUrl = R.drawable.queso_crema,
+                description = "Queso crema suave y cremoso, ideal para untar en galletas, pan, etc.",
+                ingredients = "Leche de vaca, sal, cultivos lácticos",
+                orderDescription = "200 g",
+                price = 2.0,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 46L,
-        name = "Queso Cheddar",
-        imageUrl = R.drawable.queso_chedar,
-        description = "Queso cheddar de sabor fuerte y textura firme, perfecto para hamburguesas y nachos.",
-        ingredients = "Leche de vaca, sal, cultivos lácticos",
-        orderDescription = "200 g",
-        price = 1.30,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 48L,
+                name = "Queso Parmesano",
+                imageUrl = R.drawable.queso_parmesano,
+                description = "Queso parmesano envejecido, con un sabor intenso y textura granulada, perfecto para pastas.",
+                ingredients = "Leche de vaca, sal, cultivos lácticos",
+                orderDescription = "200 g",
+                price = 6.0,
+                isFavourite = false,
+                category = "lacteos"
+            ),
 
-    Pan(
-        id = 47L,
-        name = "Queso Crema",
-        imageUrl = R.drawable.queso_crema,
-        description = "Queso crema suave y cremoso, ideal para untar en galletas, pan, etc.",
-        ingredients = "Leche de vaca, sal, cultivos lácticos",
-        orderDescription = "200 g",
-        price = 2.0,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 49L,
+                name = "Mermelada de Fresa",
+                imageUrl = R.drawable.mermelada_fresa,
+                description = "Mermelada de fresa casera, perfecta para untar en tus panes y tostadas.",
+                ingredients = "Fresas, azúcar, limón",
+                orderDescription = "1 frasco de 300g ",
+                price = 2.50,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 48L,
-        name = "Queso Parmesano",
-        imageUrl = R.drawable.queso_parmesano,
-        description = "Queso parmesano envejecido, con un sabor intenso y textura granulada, perfecto para pastas.",
-        ingredients = "Leche de vaca, sal, cultivos lácticos",
-        orderDescription = "200 g",
-        price = 6.0,
-        isFavourite = false,
-        category = "lacteos"
-    ),
+            Pan(
+                id = 50L,
+                name = "Mermelada de Manzana",
+                imageUrl = R.drawable.mermelada_manzana,
+                description = "Mermelada de manzana casera, ideal para acompañar tus desayunos.",
+                ingredients = "Manzanas, azúcar, limón",
+                orderDescription = "1 frasco de 300g ",
+                price = 2.50,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 49L,
-        name = "Mermelada de Fresa",
-        imageUrl = R.drawable.mermelada_fresa,
-        description = "Mermelada de fresa casera, perfecta para untar en tus panes y tostadas.",
-        ingredients = "Fresas, azúcar, limón",
-        orderDescription = "1 frasco de 300g ",
-        price = 2.50,
-        isFavourite = false,
-        category = "otros"
-    ),
+            Pan(
+                id = 51L,
+                name = "Mermelada de Naranja",
+                imageUrl = R.drawable.mermelada_naranja,
+                description = "Mermelada de naranja casera, perfecta para un toque cítrico en tus comidas.",
+                ingredients = "Naranjas, azúcar, limón",
+                orderDescription = "1 frasco de 300g ",
+                price = 2.50,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 50L,
-        name = "Mermelada de Manzana",
-        imageUrl = R.drawable.mermelada_manzana,
-        description = "Mermelada de manzana casera, ideal para acompañar tus desayunos.",
-        ingredients = "Manzanas, azúcar, limón",
-         orderDescription = "1 frasco de 300g ",
-        price = 2.50,
-        isFavourite = false,
-        category = "otros"
-    ),
+            Pan(
+                id = 52L,
+                name = "Mantequilla",
+                imageUrl = R.drawable.mantequilla,
+                description = "Mantequilla fresca y cremosa, perfecta para untar o cocinar.",
+                ingredients = "Leche, sal",
+                orderDescription = "1 paquete de 100 gr",
+                price = 1.90,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 51L,
-        name = "Mermelada de Naranja",
-        imageUrl = R.drawable.mermelada_naranja,
-        description = "Mermelada de naranja casera, perfecta para un toque cítrico en tus comidas.",
-        ingredients = "Naranjas, azúcar, limón",
-         orderDescription = "1 frasco de 300g ",
-        price = 2.50,
-        isFavourite = false,
-        category = "otros"
-    ),
+            Pan(
+                id = 53L,
+                name = "Nutella",
+                imageUrl = R.drawable.nutella,
+                description = "Crema de avellanas y chocolate, ideal para untar en pan o como ingrediente en postres.",
+                ingredients = "Avellanas, cacao, azúcar, leche",
+                orderDescription = "1 frasco de 200 gr",
+                price = 4.80,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 52L,
-        name = "Mantequilla",
-        imageUrl = R.drawable.mantequilla,
-        description = "Mantequilla fresca y cremosa, perfecta para untar o cocinar.",
-        ingredients = "Leche, sal",
-        orderDescription = "1 paquete de 100 gr",
-        price = 1.90,
-        isFavourite = false,
-        category = "otros"
-    ),
+            Pan(
+                id = 54L,
+                name = "Miel",
+                imageUrl = R.drawable.miel,
+                description = "Miel pura y natural, perfecta para endulzar tus bebidas y alimentos.",
+                ingredients = "Miel",
+                orderDescription = "1 frasco de 600 gr",
+                price = 2.50,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 53L,
-        name = "Nutella",
-        imageUrl = R.drawable.nutella,
-        description = "Crema de avellanas y chocolate, ideal para untar en pan o como ingrediente en postres.",
-        ingredients = "Avellanas, cacao, azúcar, leche",
-        orderDescription = "1 frasco de 200 gr",
-        price = 4.80,
-        isFavourite = false,
-        category = "otros"
-    ),
+            Pan(
+                id = 55L,
+                name = "Empanadas de Carne",
+                imageUrl = R.drawable.empanada_carne,
+                description = "Empanadas rellenas de carne, ideales para una merienda o comida rápida.",
+                ingredients = "Harina, carne, especias, cebolla",
+                orderDescription = "1 empanada",
+                price = 0.45,
+                isFavourite = false,
+                category = "otros"
+            ),
 
-    Pan(
-        id = 54L,
-        name = "Miel",
-        imageUrl = R.drawable.miel,
-        description = "Miel pura y natural, perfecta para endulzar tus bebidas y alimentos.",
-        ingredients = "Miel",
-        orderDescription = "1 frasco de 600 gr",
-        price = 2.50,
-        isFavourite = false,
-        category = "otros"
-    ),
-
-    Pan(
-        id = 55L,
-        name = "Empanadas de Carne",
-        imageUrl = R.drawable.empanada_carne,
-        description = "Empanadas rellenas de carne, ideales para una merienda o comida rápida.",
-        ingredients = "Harina, carne, especias, cebolla",
-        orderDescription = "1 empanada",
-        price = 0.45,
-        isFavourite = false,
-        category = "otros"
-    ),
-
-    Pan(
-        id = 56L,
-        name = "Empanadas de Pollo",
-        imageUrl = R.drawable.empanadas_pollo,
-        description = "Empanadas rellenas de pollo, perfectas para una comida ligera.",
-        ingredients = "Harina, pollo, especias, cebolla",
-        orderDescription = "1 empanada",
-        price = 0.45,
-        isFavourite = false,
-        category = "otros"
-    ),
- Pan(
+            Pan(
+                id = 56L,
+                name = "Empanadas de Pollo",
+                imageUrl = R.drawable.empanadas_pollo,
+                description = "Empanadas rellenas de pollo, perfectas para una comida ligera.",
+                ingredients = "Harina, pollo, especias, cebolla",
+                orderDescription = "1 empanada",
+                price = 0.45,
+                isFavourite = false,
+                category = "otros"
+            ),
+            Pan(
                 id = 57L,
                 name = "Coca-Cola-Personal",
                 imageUrl = R.drawable.coca_vidrio,
@@ -682,7 +679,7 @@ override fun getPanesRegistrados(): List<Pan> {
                 isFavourite = false,
                 category = "bebidas"
             ),
-Pan(
+            Pan(
                 id = 58L,
                 name = "Coca-Cola-Mediana",
                 imageUrl = R.drawable.coca_plastico,
@@ -695,6 +692,6 @@ Pan(
             ),
 
 
-    )
+            )
     }
 }
